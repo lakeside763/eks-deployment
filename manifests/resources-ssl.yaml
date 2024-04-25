@@ -4,7 +4,7 @@ metadata:
   name: sample-app-depl
   namespace: development
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: sample-app
@@ -16,11 +16,11 @@ spec:
       containers:
       - name: sample-eks-app-container
         image: lakeside763/school-mgt:latest
-        port:
-          containerPort: 80
+        ports:
+        - containerPort: 80
         envFrom:
-          - configMapRef:
-              name: sample-app-configmap
+        - configMapRef:
+            name: sample-app-configmap
 ---
 apiVersion: v1
 kind: Service
@@ -74,6 +74,6 @@ data:
   NODE_ENV: development
   DB_HOST: ""
   DB_PORT: "5432" 
-  DB_NAME: school-mgt
+  DB_NAME: schoolMgtDev
   DB_USERNAME: postgres
   DB_PASSWORD: ""

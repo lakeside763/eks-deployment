@@ -3,7 +3,7 @@
   # eksctl create cluster -f eksctl/cluster.yaml
 
 # 2. Getting NodeGroup IAM Role from kubernetes cluster
-  nodegroup_iam_role=$(aws eks describe-nodegroup --cluster-name school-mgt-eks  --nodegroup-name school-mgt-eks-node-group --query nodegroup.nodeRole --output text | xargs | cut -d "/" -f 2)
+  nodegroup_iam_role=$(aws eks describe-nodegroup --cluster-name sample-eks  --nodegroup-name sample-eks-node-group --query nodegroup.nodeRole --output text | xargs | cut -d "/" -f 2)
 
 
 # 3. Installing Load Balancer Controller
