@@ -52,7 +52,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: dev-api.sample-app.com
+    - host: dev-api.676981429700.realhandsonlabs.net
       http: 
         paths:
           - path: "/*"
@@ -72,8 +72,8 @@ metadata:
     app: sample-app
 data:
   NODE_ENV: development
-  DB_HOST: ""
+  DB_HOST: school-mgt-dev.c5sogsq82528.us-east-1.rds.amazonaws.com
   DB_PORT: "5432" 
   DB_NAME: schoolMgtDev
   DB_USERNAME: postgres
-  DB_PASSWORD: ""
+  DB_PASSWORD: password
