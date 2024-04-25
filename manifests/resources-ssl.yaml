@@ -39,7 +39,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sample-app
+  name: sample-app-ingress
   namespace: development
   annotations:
     kubernetes.io/ingress.class: alb
