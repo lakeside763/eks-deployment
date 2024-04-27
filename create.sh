@@ -19,7 +19,8 @@
   aws iam attach-role-policy --role-name ${nodegroup_iam_role} --policy-arn arn:aws:iam::aws:policy/AmazonRoute53FullAccess
 
 # Deploy resources
-kubectl apply -f manifests/resouces-ssl.yaml
+kubectl create namespace development
+kubectl apply -f manifests/resources-ssl.yaml
 
 echo "**********deployment**********"
 kubeclt get deployments -n development

@@ -1,0 +1,42 @@
+name: sample-app
+baseDomain: realhandsonlabs.net
+replicas: 1
+
+namespace: development
+
+aws:
+  region: us-east-1
+
+image:
+  repository: lakeside763/school-mgt
+  tag: latest
+  pullPolicy: IfNotPresent
+
+deployment:
+  name: sample-app-depl
+  containerPort: 3000
+  containerName: sample-app-container
+
+service:
+  name: sample-app-svc
+  servicePort: 433
+
+ingress:
+  name: sample-app-ingress
+
+configMap:
+  name: sample-app-configmap
+
+resources: {}
+  # requests:
+  #   cpu: 100m
+  #   memory: 100Mi
+  # limits:
+  #   cpu: 200m
+  #   memory: 1Gi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
