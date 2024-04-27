@@ -13,7 +13,7 @@ vpc:
 
 managedNodeGroups:
 - name: sample-eks-node-group
-  instanceType: t2.micro
+  instanceType: t2.small
   desiredCapacity: 1
   privateNetworking: true
 
