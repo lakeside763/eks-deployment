@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMap.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "sample-app.name" . }}
+    chart: {{ template "sample-app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  NODE_ENV: development
+  DB_HOST: ""
+  DB_PORT: "5432"
+  DB_NAME: schoolMgtDev
+  DB_USERNAME: postgres
+  DB_PASSWORD: ""

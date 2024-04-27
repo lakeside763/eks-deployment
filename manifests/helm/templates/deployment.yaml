@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deployment.name }}
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ .Values.name }}
-    chart: {{ .Chart.name }}
+    app: {{ template "sample-app.name" . }}
+    chart: {{ template "sample-app.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      app: {{ template "sample-app.name" . }}
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        app: {{ template "sample-app.name" . }}
     spec:
       containers:
       - name: {{ .Values.deployment.containerName }}
