@@ -20,14 +20,19 @@ spec:
     spec:
       containers:
       - name: {{ .Values.deployment.containerName }}
-        image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: {{ .Values.deployment.containerPort }}
         envFrom:
         - configMapRef:
             name: {{ .Values.configMap.name }}
         resources:
-{{ toYaml .Values.resources | indent 12 }}
+          requests:
+            cpu: {{ .Values.resources.requests.cpu }}
+            memory: {{ .Values.resources.requests.memory }}
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+            memory: {{ .Values.resources.limits.memory }}
       nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 8 }}
       affinity:
